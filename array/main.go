@@ -4,8 +4,9 @@ import "fmt"
 
 func SumArray(numbers []int) int{
 	var result int
-	for _,nb:=range numbers{
-		result += nb
+	
+	for _, number := range numbers {
+		result += number
 	}
 	return result
 }
@@ -22,8 +23,22 @@ func SumAll(numbersToSum ...[]int) []int{
 
 	return sums
 }
+
+func SumAllTails(numbersToSum ...[]int) []int{
+	
+	var sum []int
+
+	for _, result:=range numbersToSum{
+		tail := result[1:]
+		sum = append(sum, SumArray(tail))
+	}
+
+	return sum
+}
+
 func main(){
-	test := SumAll([]int{1,2}, []int{0,9}, []int{0,9})
+	test := SumAllTails([]int{1,2,3}, []int{0,9}, []int{0,9})
 
 	fmt.Println(test)
 }
+
