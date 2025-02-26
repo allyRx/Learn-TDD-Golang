@@ -12,8 +12,19 @@ type Cercle struct {
 	Rayon float64
 }
 
-func Perimetre(size Rectangle) float64{
+type Shape interface{
+	Aires() float64
+	Perimetre() float64
+}
+
+
+
+func (size Rectangle) Perimetre() float64{
 	return (size.Height + size.Width) * 2
+}
+
+func (size Cercle) Perimetre() float64{
+	return 2 * math.Pi * size.Rayon
 }
 
 func (size Rectangle) Aires() float64{
