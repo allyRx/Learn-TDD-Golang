@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+
 
 func SumArray(numbers []int) int{
 	var result int
@@ -29,16 +29,19 @@ func SumAllTails(numbersToSum ...[]int) []int{
 	var sum []int
 
 	for _, result:=range numbersToSum{
-		tail := result[1:]
-		sum = append(sum, SumArray(tail))
+		if len(result) == 0 {
+			sum = append(sum, 0)
+			continue
+		}else{
+			tail := result[1:]
+			sum = append(sum, SumArray(tail))
+		}
+		
 	}
 
 	return sum
 }
 
 func main(){
-	test := SumAllTails([]int{1,2,3}, []int{0,9}, []int{0,9})
-
-	fmt.Println(test)
 }
 
