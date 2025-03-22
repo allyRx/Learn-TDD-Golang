@@ -12,9 +12,15 @@ type Cercle struct {
 	Rayon float64
 }
 
+type Triangle struct{
+	Base float64
+	Height float64
+}
+
 type Shape interface{
 	Aires() float64
 	Perimetre() float64
+	Triangle() float64
 }
 
 
@@ -33,4 +39,9 @@ func (size Rectangle) Aires() float64{
 
 func (size Cercle) Aires() float64{
 	return math.Pi * size.Rayon * size.Rayon
+}
+
+
+func (size Triangle) Triangle() float64{
+	return  size.Base * size.Height / 2
 }
